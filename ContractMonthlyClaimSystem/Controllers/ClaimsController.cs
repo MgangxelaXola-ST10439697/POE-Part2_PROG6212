@@ -160,9 +160,23 @@ namespace ContractMonthlyClaimSystem.Controllers
         // Coordinator view - manage claims
         public async Task<IActionResult> Manage()
         {
+            // NEW: Check authorization
+            var userRole = HttpContext.Session.GetString("UserRole");
+            if (userRole != "Coordinator" && userRole != "Manager")
+            {
+                TempData["ErrorMessage"] = "Access denied. Only coordinators and managers can access this page.";
+                return RedirectToAction("Index", "Home");
+            }
+
             var claims = await _context.Claims
                 .OrderByDescending(c => c.DateSubmitted)
                 .ToListAsync();
+
+            ViewBag.TotalClaims = claims.Count;
+            ViewBag.PendingClaims = claims.Count(c => c.Status == "Pending");
+            ViewBag.ApprovedClaims = claims.Count(c => c.Status == "Approved");
+            ViewBag.RejectedClaims = claims.Count(c => c.Status == "Rejected");
+
             return View(claims);
         }
 
