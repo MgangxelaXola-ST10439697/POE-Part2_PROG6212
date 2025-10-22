@@ -183,10 +183,34 @@ namespace ContractMonthlyClaimSystem.Controllers
         // Track claim status
         public async Task<IActionResult> Track()
         {
-            var claims = await _context.Claims
-                .OrderByDescending(c => c.DateSubmitted)
-                .ToListAsync();
-            return View(claims);
+            try
+            {
+                // Get all claims ordered by date
+                var claims = await _context.Claims
+                    .OrderByDescending(c => c.DateSubmitted)
+                    .ToListAsync();
+
+                // ADD: Statistics for the view
+                ViewBag.TotalClaims = claims.Count;
+                ViewBag.PendingClaims = claims.Count(c => c.Status == "Pending");
+                ViewBag.ApprovedClaims = claims.Count(c => c.Status == "Approved");
+                ViewBag.RejectedClaims = claims.Count(c => c.Status == "Rejected");
+
+                //  ADD: Calculate total amounts by status
+                ViewBag.TotalAmount = claims.Sum(c => c.TotalAmount);
+                ViewBag.PendingAmount = claims.Where(c => c.Status == "Pending").Sum(c => c.TotalAmount);
+                ViewBag.ApprovedAmount = claims.Where(c => c.Status == "Approved").Sum(c => c.TotalAmount);
+
+                Console.WriteLine($"Track: Retrieved {claims.Count} claims");
+
+                return View(claims);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in Track: {ex.Message}");
+                TempData["ErrorMessage"] = "Error loading claim tracking. Please try again.";
+                return View(new List<Claim>());
+            }
         }
 
         [HttpPost]
