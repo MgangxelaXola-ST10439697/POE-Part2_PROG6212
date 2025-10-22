@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Upload Document";
+}
+
+<div class="container">
+    <h2>Upload Supporting Document</h2>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+    }
+
+    <div class="row">
+        <div class="col-md-8">
+            <form asp-action="Upload" enctype="multipart/form-data" method="post">
+                @Html.AntiForgeryToken()
+
+                <div class="mb-3">
+                    <label class="form-label">Select Claim *</label>
+                    <select name="claimId" class="form-control" required>
+                        <option value="">-- Select a Claim --</option>
+                        @foreach (var claim in ViewBag.Claims)
+                        {
+                            <option value="@claim.Id">Claim #@claim.Id - @claim.LecturerName (Submitted: @claim.DateSubmitted.ToString("yyyy-MM-dd"))</option>
+                        }
+                    </select>
+                    <div class="form-text">Select the claim you want to attach this document to</div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Select File *</label>
+                    <input type="file" name="upload" class="form-control" required accept=".pdf,.docx,.xlsx" />
+                    <div class="form-text">Allowed formats: PDF, DOCX, XLSX (Max 5MB)</div>
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-upload"></i> Upload Document
+                    </button>
+                    <a href="@Url.Action("History", "Claims")" class="btn btn-secondary">View Claim History</a>
+                    <a href="@Url.Action("Submit", "Claims")" class="btn btn-outline-primary">Submit New Claim</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Upload Instructions</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Step 1:</strong> Select the claim from the dropdown</p>
+                    <p><strong>Step 2:</strong> Choose your document file</p>
+                    <p><strong>Step 3:</strong> Click Upload Document</p>
+                    <p class="text-muted"><small>Supported files: PDF, Word documents, Excel spreadsheets</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

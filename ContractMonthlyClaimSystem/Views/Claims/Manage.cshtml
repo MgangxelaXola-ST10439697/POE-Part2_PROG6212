@@ -1,0 +1,82 @@
+﻿@model IEnumerable<ContractMonthlyClaimSystem.Models.Claim>
+@{
+    ViewData["Title"] = "Manage Claims";
+}
+
+<h2>Manage Claims - Coordinator View</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Lecturer</th>
+            <th>Date</th>
+            <th>Hours</th>
+            <th>Rate</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th>File</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.Id</td>
+                <td>@claim.LecturerName</td>
+                <td>@claim.DateSubmitted.ToString("MMM dd, yyyy")</td>
+                <td>@claim.HoursWorked</td>
+                <td>R @claim.HourlyRate</td>
+                <td>R @claim.TotalAmount</td>
+                <td>
+                    <span class="badge @(claim.Status == "Pending" ? "bg-warning" :
+                                                                                          claim.Status == "Approved" ? "bg-success" : "bg-danger")">
+                    @claim.Status
+                </span>
+            </td>
+            <td>
+                @if (!string.IsNullOrEmpty(claim.FilePath))
+                    {
+                        <a href="@claim.FilePath" target="_blank" class="btn btn-sm btn-outline-primary">
+                            View Document
+                        </a>
+                    }
+                    else
+                    {
+                        <span class="text-muted">No file</span>
+                    }
+                </td>
+                <td>
+                    @if (claim.Status == "Pending")
+                    {
+                        <form asp-action="Approve" method="post" class="d-inline">
+                            <input type="hidden" name="id" value="@claim.Id" />
+                            <button type="submit" class="btn btn-sm btn-success">Approve</button>
+                        </form>
+                        <form asp-action="Reject" method="post" class="d-inline">
+                            <input type="hidden" name="id" value="@claim.Id" />
+                            <button type="submit" class="btn btn-sm btn-danger">Reject</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <span class="text-muted">Processed</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        No claims found pending approval.
+    </div>
+}

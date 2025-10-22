@@ -1,0 +1,111 @@
+﻿@model IEnumerable<ContractMonthlyClaimSystem.Models.Claim>
+@{
+    ViewData["Title"] = "Claim History";
+}
+
+<div class="container">
+    <h2>Claim History</h2>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+    }
+
+    <!-- Summary Cards -->
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <h5 class="card-title">Total Claims</h5>
+                    <h3>@ViewBag.TotalClaims</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-warning">
+                <div class="card-body">
+                    <h5 class="card-title">Pending</h5>
+                    <h3>@ViewBag.PendingClaims</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-success">
+                <div class="card-body">
+                    <h5 class="card-title">Approved</h5>
+                    <h3>@ViewBag.ApprovedClaims</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Claim ID</th>
+                    <th>Lecturer Name</th>
+                    <th>Email</th>
+                    <th>Hours</th>
+                    <th>Rate</th>
+                    <th>Total Amount</th>
+                    <th>Date Submitted</th>
+                    <th>Status</th>
+                    <th>Document</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var claim in Model)
+                {
+                    <tr>
+                        <td>@claim.Id</td>
+                        <td>@claim.LecturerName</td>
+                        <td>@claim.LecturerEmail</td>
+                        <td>@claim.HoursWorked</td>
+                        <td>R @claim.HourlyRate</td>
+                        <td>R @claim.TotalAmount</td>
+                        <td>@claim.DateSubmitted.ToString("yyyy-MM-dd HH:mm")</td>
+                        <td>
+                            @if (claim.Status == "Pending")
+                            {
+                                <span class="badge bg-warning">@claim.Status</span>
+                            }
+                            else if (claim.Status == "Approved")
+                            {
+                                <span class="badge bg-success">@claim.Status</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">@claim.Status</span>
+                            }
+                        </td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(claim.FilePath))
+                            {
+                                <a href="@claim.FilePath" class="btn btn-sm btn-outline-primary" target="_blank" title="@claim.FileName">
+                                    <i class="fas fa-file"></i> View Document
+                                </a>
+                            }
+                            else
+                            {
+                                <span class="text-muted">No document</span>
+                                <a href="@Url.Action("Upload", "Documents")" class="btn btn-sm btn-outline-secondary">
+                                    <i class="fas fa-upload"></i> Upload
+                                </a>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info text-center">
+            <h4>No claims found</h4>
+            <p>You haven't submitted any claims yet.</p>
+            <a href="@Url.Action("Submit")" class="btn btn-primary">Submit Your First Claim</a>
+        </div>
+    }
+</div>

@@ -1,0 +1,74 @@
+﻿@model ContractMonthlyClaimSystem.Models.Claim
+
+@{
+    ViewData["Title"] = "Submit Claim";
+}
+
+<div class="container mt-4">
+    <h2>Submit Monthly Claim</h2>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show">
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <form asp-action="Submit" method="post" enctype="multipart/form-data" class="needs-validation">
+        @Html.AntiForgeryToken()
+
+        <div class="mb-3">
+            <label asp-for="LecturerName" class="form-label"></label>
+            <input asp-for="LecturerName" class="form-control" required />
+            <span asp-validation-for="LecturerName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="LecturerEmail" class="form-label"></label>
+            <input asp-for="LecturerEmail" type="email" class="form-control" required />
+            <span asp-validation-for="LecturerEmail" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="HoursWorked" class="form-label"></label>
+            <input asp-for="HoursWorked" type="number" step="0.5" class="form-control" required />
+            <span asp-validation-for="HoursWorked" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="HourlyRate" class="form-label"></label>
+            <input asp-for="HourlyRate" type="number" step="0.01" class="form-control" required />
+            <span asp-validation-for="HourlyRate" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Notes" class="form-label"></label>
+            <textarea asp-for="Notes" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="Notes" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="upload" class="form-label">Upload Supporting Document (PDF, DOCX, XLSX)</label>
+            <input type="file" name="upload" id="upload" class="form-control" accept=".pdf,.docx,.xlsx" />
+            <small class="form-text text-muted">Maximum file size: 5MB</small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit Claim</button>
+        <a asp-action="History" class="btn btn-secondary">View History</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

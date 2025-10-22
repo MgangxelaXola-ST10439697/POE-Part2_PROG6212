@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Xola\\OneDrive\\Desktop\\PROG6212-Part2\\ContractMonthlyClaimSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{578A0E16-DCB3-4B65-A860-47CFCDBC40B7}|ContractMonthlyClaimSystem.csproj|c:\\users\\xola\\onedrive\\desktop\\prog6212-part2\\contractmonthlyclaimsystem\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{578A0E16-DCB3-4B65-A860-47CFCDBC40B7}|ContractMonthlyClaimSystem.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{578A0E16-DCB3-4B65-A860-47CFCDBC40B7}|ContractMonthlyClaimSystem.csproj|c:\\users\\xola\\onedrive\\desktop\\prog6212-part2\\contractmonthlyclaimsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{578A0E16-DCB3-4B65-A860-47CFCDBC40B7}|ContractMonthlyClaimSystem.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{578A0E16-DCB3-4B65-A860-47CFCDBC40B7}|ContractMonthlyClaimSystem.csproj|c:\\users\\xola\\onedrive\\desktop\\prog6212-part2\\contractmonthlyclaimsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{578A0E16-DCB3-4B65-A860-47CFCDBC40B7}|ContractMonthlyClaimSystem.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{578A0E16-DCB3-4B65-A860-47CFCDBC40B7}|ContractMonthlyClaimSystem.csproj|c:\\users\\xola\\onedrive\\desktop\\prog6212-part2\\contractmonthlyclaimsystem\\views\\claims\\submit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{578A0E16-DCB3-4B65-A860-47CFCDBC40B7}|ContractMonthlyClaimSystem.csproj|solutionrelative:views\\claims\\submit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{578A0E16-DCB3-4B65-A860-47CFCDBC40B7}|ContractMonthlyClaimSystem.csproj|c:\\users\\xola\\onedrive\\desktop\\prog6212-part2\\contractmonthlyclaimsystem\\models\\claim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{578A0E16-DCB3-4B65-A860-47CFCDBC40B7}|ContractMonthlyClaimSystem.csproj|solutionrelative:models\\claim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{578A0E16-DCB3-4B65-A860-47CFCDBC40B7}|ContractMonthlyClaimSystem.csproj|c:\\users\\xola\\onedrive\\desktop\\prog6212-part2\\contractmonthlyclaimsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{578A0E16-DCB3-4B65-A860-47CFCDBC40B7}|ContractMonthlyClaimSystem.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 657,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Claim.cs",
+              "DocumentMoniker": "C:\\Users\\Xola\\OneDrive\\Desktop\\PROG6212-Part2\\ContractMonthlyClaimSystem\\Models\\Claim.cs",
+              "RelativeDocumentMoniker": "Models\\Claim.cs",
+              "ToolTip": "C:\\Users\\Xola\\OneDrive\\Desktop\\PROG6212-Part2\\ContractMonthlyClaimSystem\\Models\\Claim.cs",
+              "RelativeToolTip": "Models\\Claim.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T22:42:38.024Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Xola\\OneDrive\\Desktop\\PROG6212-Part2\\ContractMonthlyClaimSystem\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Xola\\OneDrive\\Desktop\\PROG6212-Part2\\ContractMonthlyClaimSystem\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-21T21:58:15.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Xola\\OneDrive\\Desktop\\PROG6212-Part2\\ContractMonthlyClaimSystem\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Xola\\OneDrive\\Desktop\\PROG6212-Part2\\ContractMonthlyClaimSystem\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAcwIAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-21T21:49:29.463Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Submit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Xola\\OneDrive\\Desktop\\PROG6212-Part2\\ContractMonthlyClaimSystem\\Views\\Claims\\Submit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Claims\\Submit.cshtml",
+              "ToolTip": "C:\\Users\\Xola\\OneDrive\\Desktop\\PROG6212-Part2\\ContractMonthlyClaimSystem\\Views\\Claims\\Submit.cshtml",
+              "RelativeToolTip": "Views\\Claims\\Submit.cshtml",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAwwEkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-21T22:22:11.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Xola\\OneDrive\\Desktop\\PROG6212-Part2\\ContractMonthlyClaimSystem\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Xola\\OneDrive\\Desktop\\PROG6212-Part2\\ContractMonthlyClaimSystem\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAOEAAAAAAAAAAAAAAA4BAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-21T21:48:40.023Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Xola\\OneDrive\\Desktop\\PROG6212-Part2\\ContractMonthlyClaimSystem\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Xola\\OneDrive\\Desktop\\PROG6212-Part2\\ContractMonthlyClaimSystem\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T01:07:43.889Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

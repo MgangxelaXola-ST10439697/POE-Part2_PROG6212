@@ -1,0 +1,250 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="login-container">
+    <div class="container">
+        <div class="row justify-content-center align-items-center min-vh-100 py-5">
+            <div class="col-lg-5 col-md-7">
+                <div class="card shadow-lg border-0 rounded-4">
+                    <div class="card-body p-5">
+
+                        <div class="text-center mb-4">
+                            <div class="login-icon mb-3">
+                                <i class="bi bi-file-earmark-text-fill"></i>
+                            </div>
+                            <h2 class="fw-bold text-primary mb-2">Welcome Back</h2>
+                            <p class="text-muted">Login to Contract Monthly Claim System</p>
+                        </div>
+
+                        @if (TempData["SuccessMessage"] != null)
+                        {
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <i class="bi bi-check-circle-fill me-2"></i>
+                                @TempData["SuccessMessage"]
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                        }
+
+                        @if (ViewBag.Error != null)
+                        {
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                                @ViewBag.Error
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                        }
+
+                        <form method="post" asp-action="Login" asp-controller="Account">
+                            @Html.AntiForgeryToken()
+
+                            <div class="mb-4">
+                                <label for="username" class="form-label fw-semibold">
+                                    <i class="bi bi-person me-2"></i>Username
+                                </label>
+                                <input type="text"
+                                       class="form-control form-control-lg"
+                                       id="username"
+                                       name="username"
+                                       placeholder="Enter your username"
+                                       required
+                                       autofocus />
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="password" class="form-label fw-semibold">
+                                    <i class="bi bi-lock me-2"></i>Password
+                                </label>
+                                <div class="input-group">
+                                    <input type="password"
+                                           class="form-control form-control-lg"
+                                           id="password"
+                                           name="password"
+                                           placeholder="Enter your password"
+                                           required />
+                                    <button class="btn btn-outline-secondary"
+                                            type="button"
+                                            id="togglePassword">
+                                        <i class="bi bi-eye" id="toggleIcon"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">
+                                    Remember me
+                                </label>
+                            </div>
+
+                            <div class="d-grid mb-3">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                                </button>
+                            </div>
+
+                            <div class="text-center">
+                                <a href="#" class="text-decoration-none small">Forgot Password?</a>
+                            </div>
+                        </form>
+                        <div class="divider my-4">
+                            <span class="divider-text">Demo Accounts</span>
+                        </div>
+
+                        <div class="demo-credentials">
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <div class="demo-card p-3 text-center bg-light rounded-3">
+                                        <i class="bi bi-person-badge fs-4 text-primary mb-2"></i>
+                                        <h6 class="mb-2 fw-bold">Lecturer</h6>
+                                        <small class="text-muted d-block">Username: <strong>lecturer</strong></small>
+                                        <small class="text-muted d-block">Password: <strong>123</strong></small>
+                                        <button type="button" class="btn btn-sm btn-outline-primary mt-2 quick-login" data-username="lecturer" data-password="1234">
+                                            Quick Login
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="demo-card p-3 text-center bg-light rounded-3">
+                                        <i class="bi bi-shield-check fs-4 text-success mb-2"></i>
+                                        <h6 class="mb-2 fw-bold">Coordinator</h6>
+                                        <small class="text-muted d-block">Username: <strong>coordinator</strong></small>
+                                        <small class="text-muted d-block">Password: <strong>123</strong></small>
+                                        <button type="button" class="btn btn-sm btn-outline-success mt-2 quick-login" data-username="coordinator" data-password="2520">
+                                            Quick Login
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <p class="text-muted small">
+                        <i class="bi bi-info-circle me-1"></i>
+                        Need help? Contact <a href="mailto:support@cmcs.com">support@cmcs.com</a>
+                    </p>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .login-container {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+    }
+
+    .login-icon {
+        font-size: 4rem;
+        color: #0d6efd;
+    }
+
+    .card {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.95);
+    }
+
+    .form-control:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+        border: none;
+        padding: 0.75rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.4);
+        }
+
+    .divider {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin: 2rem 0;
+    }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+    .divider-text {
+        padding: 0 1rem;
+        color: #6c757d;
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+
+    .demo-card {
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+        .demo-card:hover {
+            border-color: #0d6efd;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+    .input-group-text {
+        background-color: #f8f9fa;
+        border-left: none;
+    }
+
+    .alert {
+        border-radius: 0.5rem;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Password toggle
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+        const toggleIcon = document.getElementById('toggleIcon');
+
+        if (togglePassword) {
+            togglePassword.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+
+                if (type === 'password') {
+                    toggleIcon.classList.remove('bi-eye-slash');
+                    toggleIcon.classList.add('bi-eye');
+                } else {
+                    toggleIcon.classList.remove('bi-eye');
+                    toggleIcon.classList.add('bi-eye-slash');
+                }
+            });
+        }
+
+        // Quick login buttons
+        const quickLoginButtons = document.querySelectorAll('.quick-login');
+        quickLoginButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const username = this.getAttribute('data-username');
+                const password = this.getAttribute('data-password');
+
+                document.getElementById('username').value = username;
+                document.getElementById('password').value = password;
+
+                // Optional: Auto-submit
+                // document.querySelector('form').submit();
+            });
+        });
+    });
+</script>

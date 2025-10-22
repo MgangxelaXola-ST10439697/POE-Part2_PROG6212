@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h1>Welcome to the Contract Monthly Claim System (CMCS)</h1>
+    <p class="lead">Manage lecturer monthly claims easily and efficiently.</p>
+</div>
+
+<hr />
+
+<div class="row text-center mt-4">
+    <div class="col-md-4">
+        <div class="card shadow-sm p-3">
+            <h4>📄 Submit Claim</h4>
+            <p>Lecturers can submit their monthly teaching claims and upload documents.</p>
+            <a class="btn btn-primary" asp-controller="Claims" asp-action="Submit">Submit Now</a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm p-3">
+            <h4>📊 View Claim History</h4>
+            <p>Track the status of all submitted claims in one place.</p>
+            <a class="btn btn-success" asp-controller="Claims" asp-action="History">View History</a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm p-3">
+            <h4>📁 Upload Documents</h4>
+            <p>Attach any missing supporting files to your existing claim.</p>
+            <a class="btn btn-secondary" asp-controller="Documents" asp-action="Upload">Upload File</a>
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<div class="text-center mt-5">
+    <p><strong>Need help?</strong> Go to the <a asp-controller="Home" asp-action="Privacy">Privacy Page</a> or contact admin.</p>
+</div>
